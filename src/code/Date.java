@@ -1,7 +1,7 @@
 /**
  * Class that represents a Date with year, month and day.
  *
- * @author Andre, Ben, Marcus
+ * @author Andre, Ben, Marcus, Sam
  * @version 1.0
  */
 public class Date {
@@ -166,11 +166,11 @@ public class Date {
 
         // Step 1
         final int result1Const;
-        result1Const = firstDigitsOfYear / LAST_MONTH;
+        result1Const = firstDigitsOfYear / DECEMBER;
 
         // Step 2
         final int result2Const;
-        result2Const = firstDigitsOfYear % LAST_MONTH;
+        result2Const = firstDigitsOfYear % DECEMBER;
 
         // Step 3
         final int result3Const;
@@ -308,11 +308,11 @@ public class Date {
 
     // Validates month to be between 1 (January) and 12 (December).
     private static void validateMonth(final int month) {
-        if (month < FIRST_MONTH)
+        if (month < JANUARY)
             throw new IllegalArgumentException("Month doesn't accept negative numbers. Month: " + month);
-        else if (month > LAST_MONTH)
+        else if (month > DECEMBER)
             throw new IllegalArgumentException("Month not valid (after last month: "
-                    + LAST_MONTH + "). Month: " + month);
+                    + DECEMBER + "). Month: " + month);
     }
 
     /*
