@@ -15,6 +15,11 @@ public class Date {
     private static final int FEBRUARY_LEAP_YEAR_LAST_DAY = 29;
     private static final int MAX_WEEK_DAYS = 7;
 
+    /**
+     * Symbolic constant for getting the current date.
+     */
+    public static final Date CURRENT_DATE = new Date(2024, 8, 12);
+
     /*
         Array for getting the written weekday.
         !IMPORTANT: Use DAY_OF_WEEK[ weekdayNumber-1 ] to access the proper day
@@ -186,6 +191,34 @@ public class Date {
         resultWeekday %= MAX_WEEK_DAYS;
 
         return DAY_OF_WEEK[resultWeekday];
+    }
+
+    /**
+     * Gets how many whole years from date1 to date2 (truncated/rounded down).
+     *
+     * @param date1 minuend of Date subtraction
+     * @param date2 subtrahend of Date subtraction
+     * @return years of difference between date1 and date2
+     */
+    public static int subtractYears(final Date date1, final Date date2) {
+        final int date1Month;
+        final int date1Day;
+        final int date2Month;
+        final int date2Day;
+        int result;
+
+        date1Month = date1.getMonth();
+        date1Day = date1.getYear();
+        date2Month = date2.getMonth();
+        date2Day = date2.getYear();
+        result = date1.getYear() - date2.getYear();
+
+        if (date1Month >= date2Month &&
+                date1Day >= date2Day) {
+            result++;
+        }
+
+        return result;
     }
 
     /**
