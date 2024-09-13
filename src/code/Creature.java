@@ -1,3 +1,5 @@
+package code;
+
 public class Creature {
 
     private static int INITIAL_HP = 0;
