@@ -1,7 +1,7 @@
 package ca.bcit2522.Lab2.BAM;
 
 /**
- * Class that represents a ca.bcit2522.Lab2.BAM.Date with year, month and day.
+ * Class that represents a Date with year, month and day.
  *
  * @author Andre, Ben, Marcus, Sam
  * @version 1.0
@@ -16,6 +16,11 @@ public class Date {
     private static final int FEBRUARY_LAST_DAY = 28;
     private static final int FEBRUARY_LEAP_YEAR_LAST_DAY = 29;
     private static final int MAX_WEEK_DAYS = 7;
+
+    /**
+     * Symbolic constant for getting the current date.
+     */
+    public static final Date CURRENT_DATE = new Date(2024, 8, 12);
 
     /*
         Array for getting the written weekday.
@@ -52,13 +57,13 @@ public class Date {
     // Array for getting the month code constant for use for calculating the day of the week.
     private static final int[] MONTH_CODES = { 1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6 };
 
-    // Attributes for year, month and day of a ca.bcit2522.Lab2.BAM.Date object.
+    // Attributes for year, month and day of a Date object.
     private final int year;
     private final int month;
     private final int day;
 
     /**
-     * Constructor that creates a new ca.bcit2522.Lab2.BAM.Date object considering
+     * Constructor that creates a new Date object considering
      * the format Y-M-D.
      *
      * @param year  year as int.
@@ -191,7 +196,35 @@ public class Date {
     }
 
     /**
-     * Returns the year represented in this ca.bcit2522.Lab2.BAM.Date object.
+     * Gets how many whole years from date1 to date2 (truncated/rounded down).
+     *
+     * @param date1 minuend of Date subtraction
+     * @param date2 subtrahend of Date subtraction
+     * @return years of difference between date1 and date2
+     */
+    public static int subtractYears(final Date date1, final Date date2) {
+        final int date1Month;
+        final int date1Day;
+        final int date2Month;
+        final int date2Day;
+        int result;
+
+        date1Month = date1.getMonth();
+        date1Day = date1.getYear();
+        date2Month = date2.getMonth();
+        date2Day = date2.getYear();
+        result = date1.getYear() - date2.getYear();
+
+        if (date1Month >= date2Month &&
+                date1Day >= date2Day) {
+            result++;
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns the year represented in this Date object.
      *
      * @return year
      */
@@ -200,7 +233,7 @@ public class Date {
     }
 
     /**
-     * Returns the month represented in this ca.bcit2522.Lab2.BAM.Date object.
+     * Returns the month represented in this Date object.
      *
      * @return month
      */
@@ -209,7 +242,7 @@ public class Date {
     }
 
     /**
-     * Returns the day represented in this ca.bcit2522.Lab2.BAM.Date object.
+     * Returns the day represented in this Date object.
      *
      * @return day
      */
