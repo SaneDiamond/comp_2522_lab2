@@ -1,4 +1,4 @@
-package code;
+package ca.bcit2522.Lab2.BAM;
 
 /**
  * Class that represents a Date with year, month and day.

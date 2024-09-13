@@ -1,4 +1,4 @@
-package code;
+package ca.bcit2522.Lab2.BAM;
 
 import java.util.Random;
 
@@ -14,6 +14,30 @@ public class Dragon extends Creature {
     private final int health;
     private final Date dateOfBirth;
     private int firePower = rand.nextInt(100);
+
+
+    private static void DragonValidation(String name, Date dateOfBirth, int health, int firePower){
+        if (name == null ||
+                name.isEmpty() ||
+                dateOfBirth == null ||
+                health <= EMPTY ||
+                firePower < EMPTY ||
+                firePower > MAX_FIRE_POWER) {
+            throw new IllegalArgumentException("invalid input");
+        }
+
+    }    //Constructor with validation
+    public Dragon(String name, Date dateOfBirth, int health, int firePower){
+        super(name, dateOfBirth, health);
+        // Validation
+        DragonValidation(name, dateOfBirth, health, firePower);
+
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.health = health;
+        this.firePower = firePower;
+
+    }
 
     public String getName() {
         return name;
@@ -31,23 +55,7 @@ public class Dragon extends Creature {
         return firePower;
     }
 
-    //Constructor with validation
-    public Dragon(String name, Date dateOfBirth, int health, int firePower) {
-        // Validation
-        if (name == null ||
-                name.isEmpty() ||
-                dateOfBirth == null ||
-                health <= EMPTY ||
-                firePower < EMPTY ||
-                firePower > MAX_FIRE_POWER) {
-            throw new IllegalArgumentException("invalid input");
-        }
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.health = health;
-        this.firePower = firePower;
 
-    }
 
     @Override
     public String getDetails() {
