@@ -1,3 +1,5 @@
+package ca.bcit2522.Lab2.BAM;
+
 public class Creature {
 
     private static int INITIAL_HP = 0;

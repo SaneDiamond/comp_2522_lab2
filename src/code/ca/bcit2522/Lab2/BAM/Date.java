@@ -1,5 +1,7 @@
+package ca.bcit2522.Lab2.BAM;
+
 /**
- * Class that represents a Date with year, month and day.
+ * Class that represents a ca.bcit2522.Lab2.BAM.Date with year, month and day.
  *
  * @author Andre, Ben, Marcus, Sam
  * @version 1.0
@@ -50,13 +52,13 @@ public class Date {
     // Array for getting the month code constant for use for calculating the day of the week.
     private static final int[] MONTH_CODES = { 1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6 };
 
-    // Attributes for year, month and day of a Date object.
+    // Attributes for year, month and day of a ca.bcit2522.Lab2.BAM.Date object.
     private final int year;
     private final int month;
     private final int day;
 
     /**
-     * Constructor that creates a new Date object considering
+     * Constructor that creates a new ca.bcit2522.Lab2.BAM.Date object considering
      * the format Y-M-D.
      *
      * @param year  year as int.
@@ -189,7 +191,7 @@ public class Date {
     }
 
     /**
-     * Returns the year represented in this Date object.
+     * Returns the year represented in this ca.bcit2522.Lab2.BAM.Date object.
      *
      * @return year
      */
@@ -198,7 +200,7 @@ public class Date {
     }
 
     /**
-     * Returns the month represented in this Date object.
+     * Returns the month represented in this ca.bcit2522.Lab2.BAM.Date object.
      *
      * @return month
      */
@@ -207,7 +209,7 @@ public class Date {
     }
 
     /**
-     * Returns the day represented in this Date object.
+     * Returns the day represented in this ca.bcit2522.Lab2.BAM.Date object.
      *
      * @return day
      */
