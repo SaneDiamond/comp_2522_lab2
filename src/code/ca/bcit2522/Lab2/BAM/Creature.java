@@ -37,7 +37,7 @@ public class Creature {
                 healthPoints = MIN_HP;
             }
         } else {
-            throw new DamageException("Negative damage is invalid. Damage: " + damage);
+            throw new DamageException(damage);
         }
     }
 
@@ -51,7 +51,7 @@ public class Creature {
 
             healthPoints += healingPts;
         } else {
-            throw new HealingException("Negative healing is invalid. Heal amount: " + healAmount);
+            throw new HealingException(healAmount);
         }
     }
 
