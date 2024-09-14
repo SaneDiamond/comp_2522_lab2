@@ -164,7 +164,7 @@ public class Creature {
         }
     }
 
-    // Used to validate healthPoints so it's not negative.
+    // Used to validate healthPoints so it's below MIN_HP.
     private static void validateHealthPoints(final int healthPoints) {
         if (healthPoints < MIN_HP) {
             throw new IllegalArgumentException(String.format("Health points is less than the minimum of %d. Health points: %d",
