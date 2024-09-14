@@ -99,6 +99,8 @@ public class Dragon extends Creature {
     // - In this method, if firePower is less than the minimum it should throw
     //   an error, not try to restore fire power. Then you add "throws" and the
     //   name of the exception to the function name
+    // - Add damage to a creature through argument (you know it, but just so no
+    //   one forgets it
     public void breatheFire(){
         if (firePower < MIN_FIRE_POWER) {
             try
