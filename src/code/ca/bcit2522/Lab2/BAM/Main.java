@@ -11,8 +11,8 @@ public class Main {
         Date elfDate = new Date(2008, 8, 8);
         Creature elf = new Elf("Pajeet", elfDate, 100, 50);
 //        System.out.println(elf.getDetails());
-        Date orcDate = new Date(2000, 1, 2);
-        Creature orc = new Orc("Gorg", orcDate, 120, 150);
+        Date orcDate = new Date(2000, 4, 20);
+        Creature orc = new Orc("Thrall", orcDate, 120, 5);
 
 
         // store creatures in array
