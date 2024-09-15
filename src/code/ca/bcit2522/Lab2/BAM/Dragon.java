@@ -24,24 +24,11 @@ public class Dragon extends Creature {
     //   Create rand here, then instantiate it in a constructor or instance initializer.
     Random randNumGenerator = new Random();
     private int firePower = randNumGenerator.nextInt(100);
-
-    // Marcus:
-    // - Since you are only validating firePower, you don't need to pass down the other arguments
-    //   You can prob change the name of the method to firePowerValidation or something like that then
-    // - Don't forget to put this method after the constructor. Constructor should always be the
-    //   first "method" to appear in your class
-    private static void dragonValidation(final String name, final Date dateOfBirth, final int health, final int firePower) {
-        if (firePower < EMPTY || firePower > MAX_FIRE_POWER) {
-            throw new IllegalArgumentException("Fire power is out of bounds: " + firePower);
-        }
-    }
-
-
     // Marcus: missing final for arguments // check
     // Constructor with validation
     public Dragon(final String name, final Date dateOfBirth,final int health, final int firePower){
         super(name, dateOfBirth, health);
-        dragonValidation(name, dateOfBirth, health, firePower);
+        dragonValidation(firePower);
 
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -49,6 +36,16 @@ public class Dragon extends Creature {
         this.firePower = firePower;
         this.randNumGenerator = new Random();
 
+    }
+    // Marcus:
+    // - Since you are only validating firePower, you don't need to pass down the other arguments //oh true
+    //   You can prob change the name of the method to firePowerValidation or something like that then // hee hee maybe
+    // - Don't forget to put this method after the constructor. Constructor should always be the
+    //   first "method" to appear in your class // oki dokie
+    private static void dragonValidation(final int firePower) {
+        if (firePower < EMPTY || firePower > MAX_FIRE_POWER) {
+            throw new IllegalArgumentException("Fire power is out of bounds: " + firePower);
+        }
     }
 
     public String getName() {
@@ -78,17 +75,17 @@ public class Dragon extends Creature {
     @Override
     public String getDetails() {
         StringBuilder str = new StringBuilder();
-        str.append("Name:").append(name)
-                .append(" Date Of Birth:").append(dateOfBirth)
-                .append(" Health:").append(health)
-                .append(" FirePower:").append(firePower);
+        str.append("Name: ").append(name)
+                .append("\nDate Of Birth: ").append(dateOfBirth.getYyyyMmDd()) //holay molay i spent 30 minutes looking for this error
+                .append("\nHealth: ").append(health)
+                .append("\nFirePower: ").append(firePower);
 
         return str.toString();
     }
 
     // Marcus:
     // - Don't forget to put arguments as final
-    public void breatheFire(Creature creature) throws LowFirePowerException {
+    public void breatheFire(final Creature creature) throws LowFirePowerException {
         if (firePower < MIN_FIRE_POWER) {
             // Throwing the custom LowFirePowerException
             throw new LowFirePowerException("Fire power is too low to breathe fire.");
