@@ -16,17 +16,20 @@ public class Orc extends Creature {
     private static final int BERSERK_DAMAGE = 10;
     private static final int BERSERK_DAMAGE_DOUBLED = 20;
 
-    private final int rage;
+    private int rage;
 
     // Marcus:
     // - Missing constructor description
     // - Missing @throws description on JavaDoc
 
     /**
+     * Constructs orc with the attributes specified.
+     *
      * @param name         is the name of the orc.
      * @param dateOfBirth  is the birthdate of the orc.
      * @param healthPoints represents the health points of the orc.
      * @param rage         represents a buff. When doubled, berserk deals double the damage.
+     * @throws IllegalArgumentException if rage is below 5.
      */
     public Orc(final String name, final Date dateOfBirth, final int healthPoints, final int rage) {
         super(name, dateOfBirth, healthPoints);
@@ -51,9 +54,8 @@ public class Orc extends Creature {
         return details;
     }
 
-    // Marcus:
-    // - Add final to the argument
-    public void berserk(int rage, final Creature victim) {
+
+    public void berserk(final Creature victim) {
         rage += MIN_RAGE;
         if (rage >= RAGE_DOUBLE_DAMAGE && rage <= MAX_RAGE) {
             System.out.println("NOW DEALING DOUBLE THE DAMAGE! RAGE IS " + rage);
@@ -75,8 +77,8 @@ public class Orc extends Creature {
     // - No need to JavaDoc private stuff, but still needs a comment description
 
     /**
-     * @param rage when at 20, orc deals double damage.
-     * @throws IllegalArgumentException if rage is below 5.
+     * Throws an illegal argument exception whenever rage is negative.
+     *
      */
     private static void validateRage(final int rage) {
         if (rage < NO_RAGE) {

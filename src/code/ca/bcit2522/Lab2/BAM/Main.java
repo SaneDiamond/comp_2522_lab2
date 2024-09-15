@@ -18,22 +18,27 @@ public class Main {
         // store creatures in array
         Creature[] creatures = {dragon, elf, orc};
         // loop through creatures and get details of each
-        for (Creature creature : creatures) {
+        for (Creature creature : creatures)
+        {
             {
                 System.out.println(creature.getDetails());
 
                 // using instance of to check class
-                switch (creature) {
+                switch (creature)
+                {
                     case Dragon dragon1 -> System.out.println("This is a Dragon, checked with using instanceof");
                     case Elf elf1 -> System.out.println("This is an Elf, checked with using instanceof");
                     case Orc orc1 -> System.out.println("This is an Orc, checked with using instanceof");
-                    default -> {
+                    default ->
+                    {
                     }
                 }
-                // check class using the getclass method to also check class
+                // check class using the get class method to also check class
                 System.out.println("Class detected using getClass(): " + creature.getClass().getSimpleName() + "\n");
             }
 
+
         }
+
     }
 }
