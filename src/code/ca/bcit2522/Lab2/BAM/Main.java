@@ -48,21 +48,18 @@ public class Main {
         } catch (LowManaException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println();
 
         try {
             orcThrall.berserk(elfPajeet);
         } catch (LowRageException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(elfPajeet.getDetails());
 
         try {
             dragonHanoor.breatheFire(orcThrall);
         } catch (LowFirePowerException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(orcThrall.getDetails());
 
         try {
             orcThrall.berserk(dragonHanoor);

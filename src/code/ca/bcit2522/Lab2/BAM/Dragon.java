@@ -95,7 +95,7 @@ public class Dragon extends Creature {
             // Marcus: magic number
             int damage = 20;
             creature.takeDamage(damage);
-            System.out.println(damage + " DAMAGE DEALT");
+            System.out.println(damage + " damage dealt by " + getName());
         }
     }
 

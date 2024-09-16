@@ -76,6 +76,7 @@ public class Elf extends Creature {
             }
 
             victim.takeDamage(SPELL_DMG);
+            System.out.println(SPELL_DMG + " damage dealt by " + getName());
         }
     }
 

@@ -128,6 +128,7 @@ public class Creature {
         return details;
     }
 
+
     public String getName() {
         return name;
     }

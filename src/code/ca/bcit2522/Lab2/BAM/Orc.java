@@ -23,7 +23,7 @@ public class Orc extends Creature {
     // - Missing @throws description on JavaDoc
 
     /**
-     * Constructs orc with the attributes specified.
+     * Constructs an orc with the attributes specified.
      *
      * @param name         is the name of the orc.
      * @param dateOfBirth  is the birthdate of the orc.
@@ -31,12 +31,20 @@ public class Orc extends Creature {
      * @param rage         represents a buff. When doubled, berserk deals double the damage.
      * @throws IllegalArgumentException if rage is below 5.
      */
-    public Orc(final String name, final Date dateOfBirth, final int healthPoints, final int rage) {
+    public Orc(final String name, final Date dateOfBirth, final int healthPoints, final int rage)
+    {
         super(name, dateOfBirth, healthPoints);
         validateRage(rage);
         this.rage = rage;
     }
 
+
+    /**
+     *
+     * Returns details of the orc.
+     *
+     * @return name, date of birth, health points, and rage status.
+     */
     @Override
     public String getDetails() {
         final StringBuilder detailsBuilder;
@@ -54,7 +62,14 @@ public class Orc extends Creature {
         return details;
     }
 
-
+    /**
+     *
+     * Activates berserk, which deals damage to target, and increments rage by five. Once rage is twenty or above, the
+     * damage dealt is doubled.
+     *
+     * @param victim the creature to deal damage to
+     * @throws LowRageException if the rage goes below 0
+     */
     public void berserk(final Creature victim)
     {
         rage += MIN_RAGE;
@@ -76,6 +91,7 @@ public class Orc extends Creature {
 
         }
 //        System.out.println(rage);
+//        System.out.println(getHealthPoints());
     }
 
 
