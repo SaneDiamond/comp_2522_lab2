@@ -19,6 +19,9 @@ public class Main {
         Dragon dragonHanoor = new Dragon("Hanoor", dragonDate, 100, 80);
 
 
+        // Marcus:
+        // - Jason said no arrays
+        //   (I know, it's dumb, but I don't wanna get punched by a bald guy)
         // store creatures in array
         Creature[] creatures = {dragon, elf, orc};
         // loop through creatures and get details of each
