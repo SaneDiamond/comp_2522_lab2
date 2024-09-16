@@ -14,6 +14,10 @@ public class Main {
         Date orcDate = new Date(2000, 4, 20);
         Creature orc = new Orc("Thrall", orcDate, 120, 5);
 
+        Orc orcThrall = new Orc("Thrall", orcDate, 120, 5);
+        Elf elfPajeet = new Elf("Pajeet", elfDate, 100, 50);
+        Dragon dragonHanoor = new Dragon("Hanoor", dragonDate, 100, 80);
+
 
         // store creatures in array
         Creature[] creatures = {dragon, elf, orc};
@@ -38,6 +42,44 @@ public class Main {
             }
 
 
+        }
+        try {
+            elfPajeet.castSpell(orcThrall);
+        } catch (LowManaException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println();
+
+        try {
+            orcThrall.berserk(elfPajeet);
+        } catch (LowRageException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(elfPajeet.getDetails());
+
+        try {
+            dragonHanoor.breatheFire(orcThrall);
+        } catch (LowFirePowerException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(orcThrall.getDetails());
+
+        try {
+            orcThrall.berserk(dragonHanoor);
+        } catch (LowRageException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            orcThrall.berserk(dragonHanoor);
+        } catch (LowRageException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            orcThrall.berserk(dragonHanoor);
+        } catch (LowRageException e) {
+            System.out.println(e.getMessage());
         }
 
     }

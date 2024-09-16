@@ -55,7 +55,8 @@ public class Orc extends Creature {
     }
 
 
-    public void berserk(final Creature victim) {
+    public void berserk(final Creature victim)
+    {
         rage += MIN_RAGE;
         if (rage >= RAGE_DOUBLE_DAMAGE && rage <= MAX_RAGE) {
             System.out.println("NOW DEALING DOUBLE THE DAMAGE! RAGE IS " + rage);
@@ -68,13 +69,16 @@ public class Orc extends Creature {
         }
         if (rage >= RAGE_DOUBLE_DAMAGE) {
             victim.takeDamage(BERSERK_DAMAGE_DOUBLED);
+            System.out.println(BERSERK_DAMAGE_DOUBLED + " damage by " + getName());
         } else {
             victim.takeDamage(BERSERK_DAMAGE);
+            System.out.println(BERSERK_DAMAGE + " damage dealt by " + getName());
+
         }
+//        System.out.println(rage);
     }
 
-    // Marcus:
-    // - No need to JavaDoc private stuff, but still needs a comment description
+
 
     /**
      * Throws an illegal argument exception whenever rage is negative.
