@@ -1,15 +1,14 @@
 package ca.bcit2522.Lab2.BAM;
 
 import java.util.Random;
-
+/**
+ * Represents a Dragon, a living Creature from Creature class, but extends to add
+ * firepower and related functionalities.
+ *
+ * @author Ben, Andre, Marcus
+ * @version 1.0
+ */
 public class Dragon extends Creature {
-    // Marcus:
-    // - Common organization of a program:
-    //   1. Constants
-    //   2. Instance variables
-    //   3. Constructors
-    //   4. Rest of the methods
-    //   5. Helper methods
 
     private static final int EMPTY = 0;
     private static final int MAX_FIRE_POWER = 100;
@@ -24,8 +23,15 @@ public class Dragon extends Creature {
     //   Create rand here, then instantiate it in a constructor or instance initializer.
     Random randNumGenerator = new Random();
     private int firePower = randNumGenerator.nextInt(100);
-    // Marcus: missing final for arguments // check
-    // Constructor with validation
+
+    /**
+     * Constructs a Dragon with the specified attributes.
+     *
+     * @param name name of the dragon
+     * @param dateOfBirth date of birth of the dragon
+     * @param health health of the dragon
+     * @param firePower firepower of the dragon
+     */
     public Dragon(final String name, final Date dateOfBirth,final int health, final int firePower){
         super(name, dateOfBirth, health);
         dragonValidation(firePower);
@@ -42,6 +48,13 @@ public class Dragon extends Creature {
     //   You can prob change the name of the method to firePowerValidation or something like that then // hee hee maybe
     // - Don't forget to put this method after the constructor. Constructor should always be the
     //   first "method" to appear in your class // oki dokie
+
+    /**
+     * Validates the firepower of the dragon in case the firepower is out
+     * of bounds. A exception would then be thrown.
+     *
+     * @param firePower fire power of the dragon
+     */
     private static void dragonValidation(final int firePower) {
         if (firePower < EMPTY || firePower > MAX_FIRE_POWER) {
             throw new IllegalArgumentException("Fire power is out of bounds: " + firePower);
@@ -64,14 +77,11 @@ public class Dragon extends Creature {
         return firePower;
     }
 
-
-    // Marcus:
-    // - Don't forget to instatiate and initialize in different lines and
-    //   put String str as final //check
-    //   ex:
-    //      Object s;
-    //      s = new Object();
-    // - Good usage of StringBuilder :)
+    /**
+     * Returns a string of the dragons details.
+     *
+     * @return str a concatenated version of the details of the dragon
+     */
     @Override
     public String getDetails() {
         StringBuilder str = new StringBuilder();
@@ -83,8 +93,12 @@ public class Dragon extends Creature {
         return str.toString();
     }
 
-    // Marcus:
-    // - Don't forget to put arguments as final
+    /**
+     * A move from the dragon attacking another creature.
+     *
+     * @param creature the name of the victim
+     * @throws LowFirePowerException an exception thrown when firepower cost is higher than current firepower
+     */
     public void breatheFire(final Creature creature) throws LowFirePowerException {
         if (firePower < MIN_FIRE_POWER) {
             // Throwing the custom LowFirePowerException
@@ -99,6 +113,12 @@ public class Dragon extends Creature {
         }
     }
 
+    /**
+     * a method to restore the firepower of the dragon, in case the dragon does
+     * not have enough firepower.
+     *
+     * @param amount the amount of firepower to be restored to the dragon.
+     */
     public void restoreFirePower(final int amount) {
         if (amount < EMPTY || amount > MAX_FIRE_POWER) {
             throw new IllegalArgumentException("Restored amount is invalid");

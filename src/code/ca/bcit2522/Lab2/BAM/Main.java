@@ -5,13 +5,13 @@ public class Main {
         // Marcus:
         // - Don't forget to delete debug comments
         Date dragonDate = new Date(2010, 10, 10);
-        Creature dragon = new Dragon("Harnoor", dragonDate, 300, 80);
+        Creature dragon = new Dragon("Smaug", dragonDate, 300, 80);
         System.out.println(dragon.getDetails());
         System.out.println("Class detected using getClass(): " + dragon.getClass().getSimpleName());
         System.out.println(dragon instanceof Creature ? "This is a Dragon, checked using instanceof\n" : "This is not a Dragon");
 
         Date elfDate = new Date(2008, 8, 8);
-        Creature elf = new Elf("Pajeet", elfDate, 100, 50);
+        Creature elf = new Elf("Legolas", elfDate, 100, 50);
         System.out.println(elf.getDetails());
         System.out.println("Class detected using getClass(): " + elf.getClass().getSimpleName());
         System.out.println(elf instanceof Creature ? "This is an elf, checked using instanceof\n" : "This is not a Dragon");
@@ -23,10 +23,9 @@ public class Main {
         System.out.println(orc instanceof Creature ? "This is a orc, checked using instanceof\n" : "This is not a Dragon");
 
 
-
+        Dragon dragonHanoor = new Dragon("Smaug", dragonDate, 100, 80);
         Orc orcThrall = new Orc("Thrall", orcDate, 120, 5);
-        Elf elfPajeet = new Elf("Pajeet", elfDate, 100, 50);
-        Dragon dragonHanoor = new Dragon("Hanoor", dragonDate, 100, 80);
+        Elf elfPajeet = new Elf("Legolas", elfDate, 100, 50);
 
 
         // Marcus:
