@@ -22,6 +22,7 @@ public class Main {
         // Marcus:
         // - Jason said no arrays
         //   (I know, it's dumb, but I don't wanna get punched by a bald guy)
+        // bruh what da hell bruh
         // store creatures in array
         Creature[] creatures = {dragon, elf, orc};
         // loop through creatures and get details of each
