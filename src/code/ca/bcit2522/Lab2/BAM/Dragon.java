@@ -14,6 +14,7 @@ public class Dragon extends Creature {
     private static final int MAX_FIRE_POWER = 100;
     private static final int MIN_FIRE_POWER = 10;
     private static final int INVALID_AMOUNT = -100;
+    private static final int FIRE_POWER_DMG = 20;
 
     private final String name;
     private final int health;
@@ -43,11 +44,6 @@ public class Dragon extends Creature {
         this.randNumGenerator = new Random();
 
     }
-    // Marcus:
-    // - Since you are only validating firePower, you don't need to pass down the other arguments //oh true
-    //   You can prob change the name of the method to firePowerValidation or something like that then // hee hee maybe
-    // - Don't forget to put this method after the constructor. Constructor should always be the
-    //   first "method" to appear in your class // oki dokie
 
     /**
      * Validates the firepower of the dragon in case the firepower is out
@@ -107,9 +103,8 @@ public class Dragon extends Creature {
             // Reducing firePower and applying damage
             firePower -= MIN_FIRE_POWER;
             // Marcus: magic number
-            int damage = 20;
-            creature.takeDamage(damage);
-            System.out.println(damage + " damage dealt by " + getName());
+            creature.takeDamage(FIRE_POWER_DMG);
+            System.out.println(FIRE_POWER_DMG + " damage dealt by " + getName());
         }
     }
 
