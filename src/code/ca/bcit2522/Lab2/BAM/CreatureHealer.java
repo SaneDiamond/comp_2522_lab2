@@ -2,9 +2,16 @@ package ca.bcit2522.Lab2.BAM;
 
 import java.util.Random;
 
+/**
+ * Represents a healer creature, a subclass that extends Creature,
+ * adding the skill of being able to heal other creatures.
+ *
+ * @author Ben, Andre, Marcus
+ * @version 1.0
+ */
 public class CreatureHealer extends Creature {
 
-    private static Random randHealNumber;
+    private static final Random randHealNumber;
 
     static {
         randHealNumber = new Random();
@@ -26,7 +33,12 @@ public class CreatureHealer extends Creature {
         super(name, dateOfBirth, healthPoints);
     }
 
-
+    /**
+     * Heals the specified creature by applying a random healing value within a defined range,
+     * with 50% chance of not working
+     *
+     * @param healedCreature creature to be healed
+     */
     public void healCreature(final Creature healedCreature) {
         final int randomRange = 1;
         final int healingNumber = randHealNumber.nextInt(
