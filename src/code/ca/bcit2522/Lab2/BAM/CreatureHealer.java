@@ -30,7 +30,7 @@ public class CreatureHealer extends Creature {
      *                                  if healthPoints is negative or
      *                                  if dateOfBirth is in the future.
      */
-    public CreatureHealer(String name, Date dateOfBirth, int healthPoints) {
+    public CreatureHealer(final String name, final Date dateOfBirth, final int healthPoints) {
         super(name, dateOfBirth, healthPoints);
     }
 
