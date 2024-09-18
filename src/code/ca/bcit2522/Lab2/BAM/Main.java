@@ -1,6 +1,19 @@
 package ca.bcit2522.Lab2.BAM;
 
+/**
+ * Main class used to test superclass Creature and its subclasses: CreatureHealer,
+ * Date, Dragon, Elf, and Orc.
+ *
+ * @author Ben, Andre, Marcus
+ * @version 1.0
+ */
 public class Main {
+
+    /**
+     * Program's main entry point.
+     *
+     * @param args command line arguments array
+     */
     public static void main(String[] args) {
         // Marcus:
         // - Don't forget to delete debug comments
@@ -8,6 +21,8 @@ public class Main {
         Creature dragon = new Dragon("Smaug", dragonDate, 300, 80);
         System.out.println(dragon.getDetails());
         System.out.println("Class detected using getClass(): " + dragon.getClass().getSimpleName());
+
+        // Marcus: Avoid ternary operators
         System.out.println(dragon instanceof Creature ? "This is a Dragon, checked using instanceof\n" : "This is not a Dragon");
 
         Date elfDate = new Date(2008, 8, 8);
