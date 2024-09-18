@@ -1,5 +1,7 @@
 package ca.bcit2522.Lab2.BAM;
 
+
+
 /**
  * Main class used to test superclass Creature and its subclasses: CreatureHealer,
  * Date, Dragon, Elf, and Orc.
@@ -9,182 +11,183 @@ package ca.bcit2522.Lab2.BAM;
  */
 public class Main {
 
+    private static final int HEAL_AMOUNT = 5;
+
     /**
      * Program's main entry point.
      *
      * @param args command line arguments array
      */
     public static void main(String[] args) {
-        // Marcus:
-        // - Don't forget to delete debug comments
+
         Date dragonDate = new Date(2010, 10, 10);
         Creature dragon = new Dragon("Smaug", dragonDate, 300, 80);
         System.out.println(dragon.getDetails());
         System.out.println("Class detected using getClass(): " + dragon.getClass().getSimpleName());
-
-        // Marcus: Avoid ternary operators
-        System.out.println(dragon instanceof Creature ? "This is a Dragon, checked using instanceof\n" : "This is not a Dragon");
+        System.out.println(dragon instanceof Creature ? "This is a dragon, checked using instanceof\n" : "This is not a dragon");
 
         Date elfDate = new Date(2008, 8, 8);
         Creature elf = new Elf("Legolas", elfDate, 100, 50);
         System.out.println(elf.getDetails());
         System.out.println("Class detected using getClass(): " + elf.getClass().getSimpleName());
-        System.out.println(elf instanceof Creature ? "This is an elf, checked using instanceof\n" : "This is not a Dragon");
+        System.out.println(elf instanceof Creature ? "This is an elf, checked using instanceof\n" : "This is not an elf");
 
         Date orcDate = new Date(2000, 4, 20);
         Creature orc = new Orc("Thrall", orcDate, 120, 5);
         System.out.println(orc.getDetails());
         System.out.println("Class detected using getClass(): " + orc.getClass().getSimpleName());
-        System.out.println(orc instanceof Creature ? "This is a orc, checked using instanceof\n" : "This is not a Dragon");
+        System.out.println(orc instanceof Creature ? "This is a orc, checked using instanceof\n" : "This is not an orc");
 
+        Date healerDate = new Date(2001, 11, 9);
+        Creature healer = new CreatureHealer("Mercy", healerDate, 60);
+        System.out.println(healer.getDetails());
+        System.out.println("Class detected using getClass(): " + healer.getClass().getSimpleName());
+        System.out.println(healer instanceof Creature ? "This is a healer, checked using instanceof\n" : "This is not a healer");
 
-        Dragon dragonHanoor = new Dragon("Smaug", dragonDate, 100, 80);
+        Dragon dragonSmaug = new Dragon("Smaug", dragonDate, 100, 80);
         Orc orcThrall = new Orc("Thrall", orcDate, 120, 5);
-        Elf elfPajeet = new Elf("Legolas", elfDate, 100, 50);
+        Elf elfLegolas = new Elf("Legolas", elfDate, 100, 50);
+        CreatureHealer healerMercy = new CreatureHealer("Mercy", healerDate, 60);
 
 
-        // Marcus:
-        // - Jason said no arrays
-        //   (I know, it's dumb, but I don't wanna get punched by a bald guy)
-        // bruh what da hell bruh
-        // store creatures in array
-//        Creature[] creatures = {dragon, elf, orc};
-//        // loop through creatures and get details of each
-//        for (Creature creature : creatures) {
-//            // Marcus:
-//            // - 2 curly braces unnecessary // oki doki
-//                // Using instance loop of to check class
-//                switch (creature) {
-//                    // Marcus:
-//                    // - Don't use those quick switch cases
-//                    case Dragon dragon1 -> System.out.println("This is a Dragon, checked with using instanceof");
-//                    case Elf elf1 -> System.out.println("This is an Elf, checked with using instanceof");
-//                    case Orc orc1 -> System.out.println("This is an Orc, checked with using instanceof");
-//                    default -> {
-//                    }
-//                }
-//        }
-
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("Pajeet attacks Thrall!");
+        System.out.println(elfLegolas.getName() + " attacks " + orcThrall.getName() + "!");
         try {
-            elfPajeet.castSpell(orcThrall);
-            System.out.println("Thrall's health is now " + orcThrall.getHealthPoints());
+            elfLegolas.castSpell(orcThrall);
+            System.out.println(orcThrall.getName() + "'s health is now " + orcThrall.getHealthPoints());
         } catch (LowManaException e) {
             System.out.println(e.getMessage());
         }
 
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nThrall attacks Pajeet!");
+
+        System.out.println("\n" + orcThrall.getName() + " attacks " + elfLegolas.getName() + "!");
         try {
-            orcThrall.berserk(elfPajeet);
-            System.out.println("Pajeet's health is now " + elfPajeet.getHealthPoints());
+            orcThrall.berserk(elfLegolas);
+            System.out.println(elfLegolas.getName() + "'s health is now " + elfLegolas.getHealthPoints());
         } catch (LowRageException e) {
             System.out.println(e.getMessage());
         }
 
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nHanoor attacks Thrall!");
+        System.out.println("");
         try {
-            dragonHanoor.breatheFire(orcThrall);
-            System.out.println("Thrall's health is now " + orcThrall.getHealthPoints());
-        } catch (LowFirePowerException e) {
-            System.out.println(e.getMessage());
-        }
-
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nHanoor attacks Pajeet!");
-        try {
-            dragonHanoor.breatheFire(elfPajeet);
-            System.out.println("Pajeet's health is now " + elfPajeet.getHealthPoints());
-        } catch (LowFirePowerException e) {
-            System.out.println(e.getMessage());
-        }
-
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nThrall attacks Hanoor!");
-        try {
-            orcThrall.berserk(dragonHanoor);
-            System.out.println("Hanoor's health is now " + dragonHanoor.getHealthPoints());
-        } catch (LowRageException e) {
-            System.out.println(e.getMessage());
-        }
-
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nThrall attacks Hanoor!");
-        try {
-            orcThrall.berserk(dragonHanoor);
-            System.out.println("Hanoor's health is now " + dragonHanoor.getHealthPoints());
-        } catch (LowRageException e) {
-            System.out.println(e.getMessage());
-        }
-
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nPajeet attacks Hanoor!");
-        try {
-            elfPajeet.castSpell(dragonHanoor);
-            System.out.println("Hanoor's health is now " + dragonHanoor.getHealthPoints());
-        } catch (LowManaException e) {
-            System.out.println(e.getMessage());
-        }
-            dragonHanoor.heal(5);
-            System.out.println(dragon.getName() + "Heals himself");
-        try {
+            orcThrall.heal(HEAL_AMOUNT);
+            System.out.println(orcThrall.getName() + " heals himself");
+            System.out.println("The amount healed is " + HEAL_AMOUNT);
         } catch (HealingException e) {
             System.out.println(e.getMessage());
         }
 
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nPajeet attacks Hanoor!");
+        System.out.println("");
+        System.out.println(dragonSmaug.getName() + " attacks " + orcThrall.getName() + "!");
         try {
-            elfPajeet.castSpell(dragonHanoor);
-            System.out.println("Hanoor's health is now " + dragonHanoor.getHealthPoints());
+            dragonSmaug.breatheFire(orcThrall);
+            System.out.println(dragonSmaug.getName() + "'s health is now " + orcThrall.getHealthPoints());
+        } catch (LowFirePowerException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        System.out.println();
+        System.out.println(dragonSmaug.getName() + " attacks " + elfLegolas.getName() + "!");
+        try {
+            dragonSmaug.breatheFire(elfLegolas);
+            System.out.println(elfLegolas.getName() + "'s health is now " + elfLegolas.getHealthPoints());
+        } catch (LowFirePowerException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("");
+        System.out.println(orcThrall.getName() + " attacks " + dragonSmaug.getName() + "1!");
+        try {
+            orcThrall.berserk(dragonSmaug);
+            System.out.println(dragonSmaug.getName() + "'s health is now " + dragonSmaug.getHealthPoints());
+        } catch (LowRageException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("");
+        System.out.println(orcThrall.getName() + " attacks " + dragonSmaug.getName() + "1!");
+        try {
+            orcThrall.berserk(dragonSmaug);
+            System.out.println(dragonSmaug.getName() + "'s health is now " + dragonSmaug.getHealthPoints());
+        } catch (LowRageException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("");
+        System.out.println(elfLegolas.getName() + " attacks " + dragonSmaug.getName() + "!");
+        try {
+            elfLegolas.castSpell(dragonSmaug);
+            System.out.println(dragonSmaug.getName() + "'s health is now " + dragonSmaug.getHealthPoints());
         } catch (LowManaException e) {
             System.out.println(e.getMessage());
         }
 
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nHanoor attacks Thrall!");
+        System.out.println("");
         try {
-            dragonHanoor.breatheFire(orcThrall);
-            System.out.println("Thrall's health is now " + orcThrall.getHealthPoints());
+            dragonSmaug.heal(HEAL_AMOUNT);
+            System.out.println(dragonSmaug.getName() + " heals himself");
+            System.out.println("The amount healed is " + HEAL_AMOUNT);
+            System.out.println(dragonSmaug.getName() + "'s health is now " + dragonSmaug.getHealthPoints());
+        } catch (HealingException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        System.out.println("");
+        System.out.println(elfLegolas.getName() + " attacks " + dragonSmaug.getName() + "!");
+        try {
+            elfLegolas.castSpell(dragonSmaug);
+            System.out.println(elfLegolas.getName() + "'s health is now " + dragonSmaug.getHealthPoints());
+        } catch (LowManaException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        System.out.println("");
+        System.out.println(dragonSmaug.getName() + " attacks " + orcThrall.getName() + "!");
+        try {
+            dragonSmaug.breatheFire(orcThrall);
+            System.out.println(orcThrall.getName() + "'s health is now " + orcThrall.getHealthPoints());
         } catch (LowFirePowerException e) {
             System.out.println(e.getMessage());
         }
 
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
-        System.out.println("\nHanoor attacks Pajeet!");
+
+        System.out.println("");
+        System.out.println(dragonSmaug.getName() + " attacks " + elfLegolas.getName() + "!");
         try {
-            dragonHanoor.breatheFire(elfPajeet);
-            System.out.println("Pajeet's health is now " + elfPajeet.getHealthPoints());
+            dragonSmaug.breatheFire(elfLegolas);
+            System.out.println(elfLegolas.getName() + "'s health is now " + elfLegolas.getHealthPoints());
         } catch (LowFirePowerException e) {
             System.out.println(e.getMessage());
         }
 
-        // Marcus:
-        // - Use the name of the object instead of just "Pajeet"
-        //   example: creature.getName()
+
+        System.out.println("");
+        System.out.println(healerMercy.getName() + " heals " + dragonSmaug.getName() + "!");
+        try
+        {
+            healerMercy.healCreature(dragonSmaug);
+            System.out.println(dragonSmaug.getName() + "'s health is now " + dragonSmaug.getHealthPoints());
+        } catch (HealingException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+
+        System.out.println("");
+        System.out.println(healerMercy.getName() + " heals " + dragonSmaug.getName() + "!");
+        try
+        {
+            healerMercy.healCreature(dragonSmaug);
+            System.out.println(dragonSmaug.getName() + "'s health is now " + dragonSmaug.getHealthPoints());
+        } catch (HealingException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+
         System.out.println("\nTheir final health is" + "\nThrall: " + orcThrall.getHealthPoints() + "\nHanoor: "
-                + dragonHanoor.getHealthPoints() + "\nPajeet: " + elfPajeet.getHealthPoints());
+                + dragonSmaug.getHealthPoints() + "\nPajeet: " + elfLegolas.getHealthPoints());
     }
 }
