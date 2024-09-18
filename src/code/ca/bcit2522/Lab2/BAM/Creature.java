@@ -11,8 +11,16 @@ public class Creature {
     // Constants for floor/ceiling of hp, dmg and heal
     private static final int MIN_HP = 0;
     private static final int MIN_DMG = 0;
-    private static final int MAX_HEALING = 100;
-    private static final int MIN_HEAL = 0;
+
+    /**
+     * Represents the minimum amount of healing.
+     */
+    public static final int MIN_HEAL = 0;
+
+    /**
+     * Represents the maximum amount of healing.
+     */
+    public static final int MAX_HEAL = 100;
 
     private final String name;
     private final Date dateOfBirth;
@@ -84,8 +92,8 @@ public class Creature {
             int healingPts = healAmount;
 
             // Caps healing to MAX_HEALING
-            if (healingPts > MAX_HEALING) {
-                healingPts = MAX_HEALING;
+            if (healingPts > MAX_HEAL) {
+                healingPts = MAX_HEAL;
             }
 
             healthPoints += healingPts;
