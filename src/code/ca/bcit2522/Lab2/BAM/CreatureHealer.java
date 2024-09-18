@@ -13,6 +13,7 @@ public class CreatureHealer extends Creature {
 
     private static final Random randHealNumber;
 
+    // Initialize the static random number generator just once.
     static {
         randHealNumber = new Random();
     }
@@ -41,9 +42,13 @@ public class CreatureHealer extends Creature {
      */
     public void healCreature(final Creature healedCreature) {
         final int randomRange = 1;
-        final int healingNumber = randHealNumber.nextInt(
-                Creature.MAX_HEAL - (-Creature.MAX_HEAL) + randomRange);
+        final int healingNumber;
 
+        // Create a random number from negative MAX_HEAL to positive MAX_HEAL.
+        healingNumber = randHealNumber.nextInt(
+                Creature.MAX_HEAL - (- Creature.MAX_HEAL) + randomRange);
+
+        // If random healingNumber is negative, then healing doesn't work
         try {
             healedCreature.heal(healingNumber);
         }  catch(HealingException ex) {
