@@ -20,7 +20,7 @@ public class Elf extends Creature {
      * Constructs an Elf with the specified attributes.
      *
      * @param name         name of the Elf
-     * @param dateOfBirth  birth date of the Elf
+     * @param dateOfBirth  birthdate of the Elf
      * @param healthPoints health points of the Elf
      * @param manaPoints   mana points of the Elf
      * @throws IllegalArgumentException if the mana points are less than the minimum mana
@@ -50,9 +50,10 @@ public class Elf extends Creature {
         detailsBuilder = new StringBuilder();
         superDetails = super.getDetails();
 
-        detailsBuilder.append(superDetails);
-        detailsBuilder.append(", MP: ");
-        detailsBuilder.append(manaPoints);
+        detailsBuilder.append(superDetails)
+                .append(", MP: ")
+                .append(manaPoints);
+
         details = detailsBuilder.toString();
 
         return details;

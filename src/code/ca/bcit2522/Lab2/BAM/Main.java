@@ -18,45 +18,15 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Date dragonDate = new Date(2010, 10, 10);
-        Creature dragon = new Dragon("Smaug", dragonDate, 300, 80);
-        System.out.println(dragon.getDetails());
-        System.out.println("Class detected using getClass(): " + dragon.getClass().getSimpleName());
-        if (dragon instanceof Dragon){
-            System.out.println("This is a dragon, checked using instanceof");
-        } else {
-            System.out.println("This is not a dragon.");
-        }
+        final Creature dragon;
+        final Creature elf;
+        final Creature orc;
+        final Creature healer;
 
-        Date elfDate = new Date(2008, 8, 8);
-        Creature elf = new Elf("Legolas", elfDate, 100, 50);
-        System.out.println(elf.getDetails());
-        System.out.println("Class detected using getClass(): " + elf.getClass().getSimpleName());
-        if (elf instanceof Elf) {
-            System.out.println("This is an elf, checked using instanceof");
-        } else {
-            System.out.println("This is not an elf.");
-        }
-
-        Date orcDate = new Date(2000, 4, 20);
-        Creature orc = new Orc("Thrall", orcDate, 120, 5);
-        System.out.println(orc.getDetails());
-        System.out.println("Class detected using getClass(): " + orc.getClass().getSimpleName());
-        if (orc instanceof Orc) {
-            System.out.println("This is an orc, checked using instanceof");
-        } else {
-            System.out.println("This is not an orc.");
-        }
-        Date healerDate = new Date(2001, 11, 9);
-        Creature healer = new CreatureHealer("Mercy", healerDate, 60);
-        System.out.println(healer.getDetails());
-        System.out.println("Class detected using getClass(): " + healer.getClass().getSimpleName());
-        if (healer instanceof CreatureHealer){
-            System.out.println("This is a healer, checked using instanceof");
-        }else {
-            System.out.println("This is not a healer.");
-        }
-
+        final Date dragonDate;
+        final Date elfDate;
+        final Date orcDate;
+        final Date healerDate;
 
         Dragon dragonSmaug;
         Orc orcThrall;
@@ -67,6 +37,50 @@ public class Main {
         orcThrall = null;
         elfLegolas = null;
         healerMercy = null;
+
+        dragonDate = new Date(2010, 10, 10);
+        dragon = new Dragon("Smaug", dragonDate, 300, 80);
+
+        elfDate = new Date(2008, 8, 8);
+        elf = new Elf("Legolas", elfDate, 100, 50);
+
+        orcDate = new Date(2000, 4, 20);
+        orc = new Orc("Thrall", orcDate, 120, 5);
+
+        healerDate = new Date(2001, 11, 9);
+        healer = new CreatureHealer("Mercy", healerDate, 60);
+
+        System.out.println(dragon.getDetails());
+        System.out.println("Class detected using getClass(): " + dragon.getClass().getSimpleName());
+        if (dragon instanceof Dragon){
+            System.out.println("This is a dragon, checked using instanceof\n");
+        } else {
+            System.out.println("This is not a dragon.");
+        }
+
+        System.out.println(elf.getDetails());
+        System.out.println("Class detected using getClass(): " + elf.getClass().getSimpleName());
+        if (elf instanceof Elf) {
+            System.out.println("This is an elf, checked using instanceof\n");
+        } else {
+            System.out.println("This is not an elf.");
+        }
+
+        System.out.println(orc.getDetails());
+        System.out.println("Class detected using getClass(): " + orc.getClass().getSimpleName());
+        if (orc instanceof Orc) {
+            System.out.println("This is an orc, checked using instanceof\n");
+        } else {
+            System.out.println("This is not an orc.");
+        }
+        System.out.println(healer.getDetails());
+        System.out.println("Class detected using getClass(): " + healer.getClass().getSimpleName());
+        if (healer instanceof CreatureHealer){
+            System.out.println("This is a healer, checked using instanceof");
+        }else {
+            System.out.println("This is not a healer.");
+        }
+
 
         if (dragon instanceof Dragon) {
             dragonSmaug = (Dragon) dragon;
@@ -91,6 +105,7 @@ public class Main {
         } else {
             System.out.println("This is not a healer.");
         }
+        System.out.println();
 
         System.out.println(elfLegolas.getName() + " attacks " + orcThrall.getName() + "!");
         try {
@@ -238,9 +253,9 @@ public class Main {
         }
 
 
-        System.out.println("\nTheir final health is" + "\n" + orcThrall.getName() + ": " + orcThrall.getHealthPoints()
-                + "\n" + dragonSmaug.getName() + ": " + dragonSmaug.getHealthPoints()
-                + "\n" + elfLegolas.getName() + ": " + elfLegolas.getHealthPoints()
-                + "\n" + healerMercy.getName() + ": " + healerMercy.getHealthPoints());
+        System.out.println("\nTheir final health is" + "\n" + orcThrall.getName() + ": " + orcThrall.getHealthPoints() +
+                "\n" + dragonSmaug.getName() + ": " + dragonSmaug.getHealthPoints() +
+                "\n" + elfLegolas.getName() + ": " + elfLegolas.getHealthPoints() +
+                "\n" + healerMercy.getName() + ": " + healerMercy.getHealthPoints());
     }
 }

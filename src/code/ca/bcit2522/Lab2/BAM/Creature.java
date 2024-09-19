@@ -1,7 +1,7 @@
 package ca.bcit2522.Lab2.BAM;
 
 /**
- * Class that represents a living creature with name, birth date and
+ * Class that represents a living creature with name, birthdate and
  * health points.
  *
  * @author Ben, Andre, Marcus
@@ -11,7 +11,7 @@ public class Creature {
     // Constants for floor/ceiling of hp, dmg and heal
     private static final int MIN_HP = 0;
     private static final int MIN_DMG = 0;
-
+    private static final int MIN_YEAR_DIFF = 0;
     /**
      * Represents the minimum amount of healing.
      */
@@ -89,7 +89,8 @@ public class Creature {
      */
     public void heal(final int healAmount) {
         if (healAmount >= MIN_HEAL) {
-            int healingPts = healAmount;
+            int healingPts;
+            healingPts = healAmount;
 
             // Caps healing to MAX_HEALING
             if (healingPts > MAX_HEAL) {
@@ -123,14 +124,14 @@ public class Creature {
         final String details;
 
         detailsBuilder = new StringBuilder();
-        // Processing
-        detailsBuilder.append(name);
-        detailsBuilder.append("(");
-        detailsBuilder.append(dateOfBirth.getYyyyMmDd());
-        detailsBuilder.append("), ");
-        detailsBuilder.append(getAgeYears());
-        detailsBuilder.append(" years old, HP: ");
-        detailsBuilder.append(healthPoints);
+        detailsBuilder.append(name)
+                .append("(")
+                .append(dateOfBirth.getYyyyMmDd())
+                .append("), ")
+                .append(getAgeYears())
+                .append(" years old, HP: ")
+                .append(healthPoints);
+
         details = detailsBuilder.toString();
 
         return details;
@@ -161,13 +162,13 @@ public class Creature {
     // Used to validate dateOfBirth so it's not null or in the future.
     private static void validateDateOfBirth(final Date dateOfBirth) {
         // If the difference in years of the dateOfBirth and the current date is
-        // negative, than the dateOfBirth is after the current date not possible.
+        // negative, then the dateOfBirth is after the current date not possible.
         if (dateOfBirth == null) {
             throw new IllegalArgumentException("A null birth date is not accepted.");
         } else {
             final int yearDifference;
             yearDifference = Date.subtractYears(Date.CURRENT_DATE, dateOfBirth);
-            if (yearDifference < 0) {
+            if (yearDifference < MIN_YEAR_DIFF) {
                 throw new IllegalArgumentException("Birth date is in the future (not allowed).");
             }
         }

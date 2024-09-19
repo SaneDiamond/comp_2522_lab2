@@ -13,15 +13,12 @@ public class Dragon extends Creature {
     private static final int EMPTY = 0;
     private static final int MAX_FIRE_POWER = 100;
     private static final int MIN_FIRE_POWER = 10;
-    private static final int INVALID_AMOUNT = -100;
     private static final int FIRE_POWER_DMG = 20;
 
     private final String name;
     private final int health;
     private final Date dateOfBirth;
-    // Marcus:
-    // - Calling a method outside of a method/constructor is very bad practice.
-    //   Create rand here, then instantiate it in a constructor or instance initializer.
+
     Random randNumGenerator = new Random();
     private int firePower = randNumGenerator.nextInt(100);
 
@@ -102,7 +99,6 @@ public class Dragon extends Creature {
         } else {
             // Reducing firePower and applying damage
             firePower -= MIN_FIRE_POWER;
-            // Marcus: magic number
             creature.takeDamage(FIRE_POWER_DMG);
             System.out.println(FIRE_POWER_DMG + " damage dealt by " + getName());
         }

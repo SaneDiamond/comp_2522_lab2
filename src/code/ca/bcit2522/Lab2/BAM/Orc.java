@@ -18,10 +18,6 @@ public class Orc extends Creature {
 
     private int rage;
 
-    // Marcus:
-    // - Missing constructor description
-    // - Missing @throws description on JavaDoc
-
     /**
      * Constructs an orc with the attributes specified.
      *
@@ -90,12 +86,7 @@ public class Orc extends Creature {
             System.out.println(BERSERK_DAMAGE + " damage dealt by " + getName());
 
         }
-//        System.out.println(rage);
-//        System.out.println(getHealthPoints());
     }
-
-
-
     /**
      * Throws an illegal argument exception whenever rage is negative.
      *

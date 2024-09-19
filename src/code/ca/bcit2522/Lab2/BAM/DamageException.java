@@ -1,7 +1,7 @@
 package ca.bcit2522.Lab2.BAM;
 
 /**
- * Class to represent an invalid damage as a runtime exception.
+ * Class to represent invalid damage as a runtime exception.
  *
  * @author Ben, Andre, Marcus
  * @version 1.0
