@@ -1,4 +1,4 @@
-package ca.bcit2522.Lab2.BAM;
+package ca.bcit2522.Lab2.bam;
 
 /**
  * Class to check whether the dragon does not have enough firepower

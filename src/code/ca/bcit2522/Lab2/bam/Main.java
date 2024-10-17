@@ -1,4 +1,4 @@
-package ca.bcit2522.Lab2.BAM;
+package ca.bcit2522.Lab2.bam;
 
 /**
  * Main class used to test superclass Creature and its subclasses: CreatureHealer,

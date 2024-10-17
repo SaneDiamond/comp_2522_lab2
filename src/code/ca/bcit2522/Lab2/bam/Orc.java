@@ -1,4 +1,4 @@
-package ca.bcit2522.Lab2.BAM;
+package ca.bcit2522.Lab2.bam;
 
 /**
  * Represents Orc, a subclass that extends Creature, adding berserk as a way to deal damage and rage, which doubles
